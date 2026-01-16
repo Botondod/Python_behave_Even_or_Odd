@@ -3,10 +3,9 @@ from behave import given, when, then
 from src.number_checker import check_number
 
 # TODO: Implementáld a Given step-et
-@given('the number is 4')
-def step_given_number(context):
-    context.number = 4
-
+@given('the number is {number:d}')
+def step_given_number(context, number):
+    context.number = number
 
 # TODO: Implementáld a When step-et
 # Használd a check_number függvényt a src/number_checker.py fájlból!
@@ -19,3 +18,4 @@ def step_when_check_number(context):
 @then('I should be told "{expected}"')
 def step_then_result(context, expected):
     assert context.result == expected, f'Elvárt: {expected}, kapott: {context.result}'
+
